@@ -6,7 +6,7 @@ import GroupMessages from './components/GroupMessages';
 
 function App() {
   const [selectedGroup, setSelectedGroup] = useState(null);
-  const [messages, setMessages] = useState({});
+  const [groupMessages, setGroupMessages] = useState({});
 
   const handleGroupClick = (group) => {
     setSelectedGroup(group);
@@ -18,17 +18,21 @@ function App() {
 
   const handleMessagesUpdate = (group, message) => {
     // Update messages for the selected group
-    setMessages({
-      ...messages,
-      [group.name]: [...(messages[group.name] || []), message]
-    });
+    const updatedMessages = { ...groupMessages };
+    updatedMessages[group.name] = [...(updatedMessages[group.name] || []), message];
+    setGroupMessages(updatedMessages);
   };
 
   return (
     <div className="firstPage">
       <GroupList onGroupClick={handleGroupClick} />
       {selectedGroup ? (
-        <GroupMessages group={selectedGroup} messages={messages[selectedGroup.name] || []} onMessageSend={handleMessagesUpdate} onClose={handleReturnToGroupList} />
+        <GroupMessages 
+            group={selectedGroup} 
+            messages={groupMessages[selectedGroup.name] || []} 
+            onMessageSend={handleMessagesUpdate} 
+            onClose={handleReturnToGroupList} 
+        />
       ) : (
         <LandingPage />
       )}

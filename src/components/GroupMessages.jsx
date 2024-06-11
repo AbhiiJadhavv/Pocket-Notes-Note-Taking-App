@@ -2,14 +2,12 @@ import React, { useState } from 'react';
 import './GroupMessages.css';
 import sendIcon from '../assets/sendIcon.png';
 
-function GroupMessages({ group, messages, onMessageSend }) {
+function GroupMessages({ group, onMessageSend }) {
     const getInitials = (name) => {
         const words = name.split(' ');
         if (words.length === 1) {
-            // If group name is a single word, take first two letters in capital format
             return name.slice(0, 2).toUpperCase();
         } else if (words.length >= 2) {
-            // If group name has two or more words, take first letters of first two words
             return words[0][0].toUpperCase() + words[1][0].toUpperCase();
         } else {
             return '';
@@ -17,7 +15,7 @@ function GroupMessages({ group, messages, onMessageSend }) {
     };
 
     const [message, setMessage] = useState('');
-    const [sentTime, setSentTime] = useState('');
+    const [sentMessages, setSentMessages] = useState([]);
 
     const handleMessageChange = (event) => {
         setMessage(event.target.value);
@@ -32,31 +30,30 @@ function GroupMessages({ group, messages, onMessageSend }) {
             const amOrPm = hours >= 12 ? 'PM' : 'AM';
             const formattedHours = hours % 12 || 12; // Convert hours to 12-hour format
             const formattedMinutes = minutes < 10 ? '0' + minutes : minutes; // Add leading zero for minutes less than 10
-
+    
             const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
             const month = months[currentDate.getMonth()];
             const day = currentDate.getDate();
             const year = currentDate.getFullYear();
-
-            const currentTime = `${formattedHours}:${formattedMinutes} ${amOrPm} ${day} ${month} ${year}`;
+    
+            const currentTime = `${formattedHours}:${formattedMinutes} ${amOrPm}`;
+            const currentDateAndTime = `${month} ${day} ${year}`;
+    
             // Format the message
-            const formattedMessage = `${message}`;
+            const formattedMessage = {
+                content: message,
+                time: currentTime,
+                date: currentDateAndTime
+            };
+    
             // Notify parent component to update messages
             onMessageSend(group, formattedMessage);
             setMessage('');
-            // Update the sent time
-            setSentTime(currentTime);
+            // Update the sent messages
+            setSentMessages([...sentMessages, formattedMessage]);
         }
     };
-
-    const renderMessages = () => {
-        return messages.map((message, index) => (
-            <div key={index} className="message">
-                {message}
-            </div>
-        ));
-    };
-
+    
     return (
         <div className='groupMessages'>
             <div className='messageHeader'>
@@ -65,9 +62,16 @@ function GroupMessages({ group, messages, onMessageSend }) {
                 </div>
                 <p>{group.name}</p>
             </div>
-            <div className="messages">
-              {sentTime && <div className="dateAndTime">{sentTime}</div>}
-                {renderMessages()}
+            <div className="messagesCon">
+                {sentMessages.map((message, index) => (
+                    <div key={index} className="messages">
+                        <div className="messageTime">
+                            <p className="time">{message.time}</p>
+                            <p className="date">{message.date}</p>
+                        </div>
+                        <div className="messageContent">{message.content}</div>
+                    </div>
+                ))}
             </div>
             <div className="textareaCon">
                 <textarea className="textarea" value={message} onChange={handleMessageChange} placeholder='Enter your text here...........' />
