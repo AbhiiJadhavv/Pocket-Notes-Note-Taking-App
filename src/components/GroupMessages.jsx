@@ -1,5 +1,6 @@
 import React from 'react';
 import './GroupMessages.css'
+import sendIcon from '../assets/sendIcon.png'
 
 function GroupMessages({ group }) {
     const getInitials = (name) => {
@@ -17,13 +18,19 @@ function GroupMessages({ group }) {
     
     return (
     <div className='groupMessages'>
-      <div className='MessageHeader'>
+      <div className='messageHeader'>
         <div className="groupIcon" style={{ backgroundColor: group.color }}>
           {getInitials(group.name)}
         </div>
         <p>{group.name}</p>
-        {/* Your group messages UI */}
-    </div>
+      </div>
+      <div className="messages">
+
+      </div>
+      <div className="textareaCon">
+        <textarea className="textarea" placeholder='Enter your text here...........'></textarea>
+        <button className="textareaButton"><img src={sendIcon} alt="sendIcon Image"/></button>
+      </div>
     </div>
   );
 }

@@ -1,12 +1,12 @@
-.MessageHeader {
+.messageHeader {
     display: flex;
-    height: 4.3rem;
+    height: 10%;
     width: 100%;
     background-color: #E8E8E8;
     align-items: center;
 }
 
-.MessageHeader>p {
+.messageHeader>p {
     margin-left: 1.5rem;
     color: #000000;
     font-size: 1.25rem;
@@ -15,8 +15,59 @@
     letter-spacing: 0.02em;
 }
 
+.messages {
+    height: 63%;
+}
+
 .groupMessages {
-    height: 100vh;
+    height: 97vh;
     width: 75vw;
     background-color: #F7ECDC;
+    border-bottom-left-radius: 11px;
+}
+
+.textareaCon {
+    position: relative;
+    width: 100%;
+    height: 27%;
+    padding: 1rem 1.5rem;
+    background-color: #E8E8E8;
+    border-bottom-left-radius: 11px;
+}
+
+.textarea {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+    font-size: 1.1rem;
+    resize: none;
+    border: 1px solid #CCCCCC;
+    border-radius: 9px;
+}
+
+.textareaButton {
+    position: absolute;
+    bottom: 2.2rem;
+    right: 3rem;
+    border: none;
+    height: 2rem;
+    width: 2rem;
+}
+
+.textareaButton>img {
+    width: 30px;
+    height: 25px;
+}
+
+.textarea:focus {
+    outline-color: aquamarine;
+}
+
+.textarea::placeholder {
+    color: #9A9A9A;
+    font-size: 1.3rem;
+    font-weight: 400;
+    line-height: 2rem;
+    letter-spacing: 0.02em;
 }

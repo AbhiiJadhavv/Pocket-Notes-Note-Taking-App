@@ -27,7 +27,7 @@
     cursor: pointer;
 }
 
-.group:active {
+.group.clicked {
     background-color: #F7ECDC;
 }
 
@@ -78,7 +78,7 @@
 }
 
 button:hover {
-    border: 3px solid yellowgreen;
+    border: 2px solid yellowgreen;
 }
 
 button:active {

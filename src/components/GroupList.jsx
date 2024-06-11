@@ -27,6 +27,13 @@ function GroupList({ onGroupClick }) {
     }
   };
 
+  const [clickedGroup, setClickedGroup] = useState(null);
+
+  const handleGroupClick = (group) => {
+    onGroupClick(group); // Perform any other actions you need here
+    setClickedGroup(group);
+  };
+
   return (
     <div className="groupList">
         <div className="header">
@@ -41,7 +48,7 @@ function GroupList({ onGroupClick }) {
         </div>
         <div className="groups">
             {groups.map((group, index) => (
-                <div key={index} className="group" onClick={() => onGroupClick(group)}>
+                <div key={index} className={`group ${clickedGroup === group ? 'clicked' : ''}`} onClick={() => handleGroupClick(group)}>
                     <div className="groupIcon" style={{ backgroundColor: group.color }}>
                         {getInitials(group.name)}
                     </div>
