@@ -1,0 +1,91 @@
+.groupList{
+    height: 100vh;
+    width: 25vw;
+    background-color: #ffffff;
+}
+
+.header>p {
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 2.5rem;
+    letter-spacing: 0.02em;
+    margin-top: 1.5rem;
+    margin-left: 1.5rem;
+}
+
+.groups {
+    margin-top: 2rem;
+}
+
+.group {
+    height: 4.3rem;
+    display: flex;
+    align-items: center;
+    margin-left: 1.5rem;
+    border-top-left-radius: 32px;
+    border-bottom-left-radius: 32px;
+    cursor: pointer;
+}
+
+.group:active {
+    background-color: #F7ECDC;
+}
+
+.group>p {
+    margin-left: 1.5rem;
+    color: #000000;
+    font-size: 1.15rem;
+    font-weight: 500;
+    line-height: 1.5rem;
+    letter-spacing: 0.02em;
+}
+
+.groupIcon {
+    height: 2.8rem;
+    width: 2.8rem;
+    border-radius: 50px;
+    color: #ffffff;
+    font-size: 1.1rem;
+    font-weight: 500;
+    line-height: 1.5rem;
+    letter-spacing: 0.02em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 1.5rem;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.button button {
+    border: none;
+    background-color: #000000;
+    color: #ffffff;
+    font-family: Roboto;
+    font-size: 1.2rem;
+    font-weight: 400;
+    line-height: 2rem;
+    letter-spacing: 0.02em;
+    border-radius: 50px;
+    padding: 0.1rem 1.8rem;
+    cursor: pointer;
+    transition: 0.2s all;
+}
+
+button:hover {
+    border: 3px solid yellowgreen;
+}
+
+button:active {
+    transform: scale(0.92);
+}
+
+.button span {
+    font-size: 1.8rem;
+    line-height: 2rem;
+}

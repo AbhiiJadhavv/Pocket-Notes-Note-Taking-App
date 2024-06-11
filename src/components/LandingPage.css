@@ -1,0 +1,44 @@
+.landingPage {
+    height: 100vh;
+    width: 75vw;
+    background-color: #F7ECDC;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.landingPage>p {
+    color: #000000;
+    font-size: 2.3rem;
+    font-weight: 400;
+    line-height: 4rem;
+    letter-spacing: 0.02em;
+}
+
+.landingPage img {
+    width: 34rem;
+    height: 17rem;
+    margin-top: 6rem;
+}
+
+.paraText p {
+    color: #292929;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5rem;
+    letter-spacing: 0.02em;
+}
+
+.landingPage span {
+    margin-top: 8.5rem;
+    color: #292929;
+    font-size: 1rem;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+}
+
+.material-icons {
+    font-size: 1.1rem;
+    line-height: 1.1rem;
+}
