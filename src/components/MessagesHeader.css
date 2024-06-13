@@ -1,0 +1,31 @@
+.groupIcon {
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50px;
+    color: #ffffff;
+    font-size: 1.1rem;
+    font-weight: 500;
+    line-height: 1.5rem;
+    letter-spacing: 0.02em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 1.5rem;
+}
+
+.messageHeader {
+    display: flex;
+    height: 11%;
+    width: 100%;
+    background-color: #E8E8E8;
+    align-items: center;
+}
+
+.messageHeader>p {
+    margin-left: 1.5rem;
+    color: #000000;
+    font-size: 1.25rem;
+    font-weight: 500;
+    line-height: 1.5rem;
+    letter-spacing: 0.02em;
+}
