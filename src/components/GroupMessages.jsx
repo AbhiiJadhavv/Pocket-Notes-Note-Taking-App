@@ -21,6 +21,13 @@ function GroupMessages({ group, onMessageSend }) {
         setMessage(event.target.value);
     };
 
+    const handleKeyPress = (event) => {
+      if (event.key === 'Enter' && !event.shiftKey) {
+        event.preventDefault();
+        handleSendMessage();
+      }
+    };
+
     const handleSendMessage = () => {
         if (message.trim() !== '') {
             // Get current date and time
@@ -74,9 +81,9 @@ function GroupMessages({ group, onMessageSend }) {
                 ))}
             </div>
             <div className="textareaCon">
-                <textarea className="textarea" value={message} onChange={handleMessageChange} placeholder='Enter your text here...........' />
-                <button className="textareaButton" onClick={handleSendMessage}>
-                    <img src={sendIcon} alt="sendIcon Image" />
+                <textarea className="textarea" value={message} onChange={handleMessageChange} onKeyDown={handleKeyPress} placeholder='Enter your text here...........' />
+                <button className={`textareaButton ${!message.trim() ? 'textareaButton2' : ''}`} onClick={handleSendMessage}>
+                  <img src={sendIcon} alt="send" />
                 </button>
             </div>
         </div>

@@ -10,6 +10,10 @@
     transform: scale(0.85);
 }
 
+.color-circle.selected {
+    border: 2px solid black;
+}
+
 .color-options {
     display: flex;
     height: 2rem;

@@ -23,8 +23,12 @@
     overflow-y: auto;
 }
 
+.messagesCon::-webkit-scrollbar{
+    display: none;
+}
+
 .messageTime {
-    min-width: 15%;
+    min-width: 18%;
 }
 
 .date {
@@ -54,7 +58,7 @@
 .messages {
     display: flex;
     padding-top: 3rem;
-    padding-left: 3rem;
+    padding-left: 3.5rem;
     padding-right: 2rem;
 }
 
@@ -92,11 +96,23 @@
     border: none;
     height: 2rem;
     width: 2rem;
+    background-color: white;
+    cursor: pointer;
+}
+
+.textareaButton:hover {
+    border: none;
 }
 
 .textareaButton>img {
-    width: 30px;
+    width: 25px;
     height: 25px;
+}
+
+.textareaButton2>img {
+    width: 25px;
+    height: 25px;
+    opacity: 0.35;
 }
 
 .textarea:focus {
