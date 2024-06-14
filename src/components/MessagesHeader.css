@@ -29,3 +29,11 @@
     line-height: 1.5rem;
     letter-spacing: 0.02em;
 }
+
+@media  screen and (max-width: 720px) {
+    .back-button {
+        border: none;
+        background-color: #E8E8E8;
+        margin-left: 1rem;
+    }
+}

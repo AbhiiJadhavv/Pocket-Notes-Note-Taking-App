@@ -10,6 +10,7 @@ function App() {
   const [isFormVisible, setIsFormVisible] = useState(false);
   const [noteLists, setNoteLists] = useState([]);
   const [activeNoteList, setActiveNoteList] = useState(null);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <720);
 
   // Load note lists from local storage on component mount
   useEffect(() => {
@@ -22,6 +23,14 @@ function App() {
     localStorage.setItem('noteLists', JSON.stringify(noteLists));
   }, [noteLists]);
 
+  // Mobile view
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 720);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const handleCreateNotesGroup = () => setIsFormVisible(true);
   const handleCloseForm = () => setIsFormVisible(false);
@@ -57,6 +66,10 @@ function App() {
     setActiveNoteList(updatedActiveNoteList);
   };
 
+  const handleGoBack = () => {
+    setActiveNoteList(null);
+  }
+
   const getInitials = (name) => {
     const nameParts = name.trim().split(' ');
     if (nameParts.length >= 2) {
@@ -69,6 +82,7 @@ function App() {
 
   return (
     <div className="firstPage">
+      {!isMobile || !activeNoteList ? (
       <div className="groupList">
         <div className='header'>
           <p>Pocket Notes</p>
@@ -91,10 +105,11 @@ function App() {
           </nav>
         </div>
       </div>
+      ) : null}
       <div className="groupMessages">
         {activeNoteList ? (
           <>
-            <MessagesHeader noteList={activeNoteList} />
+            <MessagesHeader noteList={activeNoteList} isMobile={isMobile} onGoBack={handleGoBack} />
             <div className="messagesCon">
               {activeNoteList && activeNoteList.notes.slice().reverse().map((note) => (
                 <Message key={note.id} note={note} />

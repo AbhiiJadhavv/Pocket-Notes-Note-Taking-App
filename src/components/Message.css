@@ -32,3 +32,15 @@
     line-height: 1.6rem;
     letter-spacing: 0.035em;
 }
+
+@media  screen and (max-width: 720px) {
+    .messages {
+        padding-top: 1.5rem;
+        padding-left: 0.1rem;
+        padding-right: 0.1rem;
+    }
+
+    .messageContent {
+        margin-left: 1rem;
+    }
+}

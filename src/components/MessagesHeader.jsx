@@ -1,7 +1,8 @@
 import React from 'react';
 import './MessagesHeader.css';
+import arrow from '../assets/arrow.png'
 
-const MessagesHeader = ({ noteList }) => {
+const MessagesHeader = ({ noteList, isMobile, onGoBack }) => {
   const getInitials = (name) => {
     const nameParts = name.trim().split(' ');
     if (nameParts.length >= 2) {
@@ -14,6 +15,9 @@ const MessagesHeader = ({ noteList }) => {
 
   return (
     <div className="messageHeader">
+      {isMobile && (
+        <button className='back-button' onClick={onGoBack}><img src={arrow} alt="back-Btn" /></button>
+      )}
       <div className="groupIcon" style={{ backgroundColor: noteList.color || '#ccc' }}>
         {getInitials(noteList.name)}
       </div>

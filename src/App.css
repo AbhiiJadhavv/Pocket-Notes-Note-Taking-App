@@ -134,7 +134,12 @@ button:active {
   }
 
   .button {
-    width: 80vw;
+    width: 100vw;
+  }
+
+  .button:hover {
+    border: none;
+    outline: none;
   }
 
   .end-to-end {
@@ -143,6 +148,11 @@ button:active {
 
   .list-style.active {
     background-color: rgb(255, 236, 239);
+  }
+
+  .groupMessages {
+    height: 100vh;
+    width: 100vw;
   }
   
 }
