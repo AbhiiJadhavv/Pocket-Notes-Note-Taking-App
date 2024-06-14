@@ -7,7 +7,7 @@ function Message({ note }) {
   };
 
   const formatDate = (timestamp) => {
-    return new Date(timestamp).toLocaleDateString(undefined, {month: 'long', day: 'numeric', year: 'numeric'});
+    return new Date(timestamp).toLocaleDateString(undefined, {day: 'numeric', month: 'long', year: 'numeric'});
   };
 
   return (

@@ -108,3 +108,48 @@
     margin-left: 28rem;
     cursor: pointer;
 }
+
+@media  screen and (max-width: 720px) {
+    .popupBox {
+        height: 16rem;
+        width: 20rem;
+    }
+
+    .form-container>button {
+        margin-left: 2.5rem;
+        width: 70%;
+    }
+
+    .popupBox>p {
+        font-size: 1.2rem;
+    }
+
+    .form-label {
+        font-size: 1rem;
+        margin-left: 1rem;
+    }
+
+    .groupInput {
+        width: 10rem;
+        height: 2rem;
+        margin-left: 1rem;
+    }
+
+    ::placeholder {
+        font-size: 0.7rem;
+    }
+
+    .color-options {
+        margin-left: 1rem;
+    }
+
+    .color-circle {
+        height: 1rem;
+        width: 1rem;
+    }
+
+    .color-options {
+        width: 9rem;
+        height: 1.5rem;
+    }
+}

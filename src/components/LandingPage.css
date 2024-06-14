@@ -42,3 +42,9 @@
     font-size: 1.1rem;
     line-height: 1.1rem;
 }
+
+@media  screen and (max-width: 720px) {
+    .landingPage {
+        display: none;
+    }
+}
